@@ -1,0 +1,7 @@
+C:\Users\Ahmed Elhagrasi\Desktop\DotNet_app\published_app\WebApplication1.exe
+C:\Users\Ahmed Elhagrasi\Desktop\DotNet_app\published_app\appsettings.Development.json
+C:\Users\Ahmed Elhagrasi\Desktop\DotNet_app\published_app\appsettings.json
+C:\Users\Ahmed Elhagrasi\Desktop\DotNet_app\published_app\WebApplication1.dll
+C:\Users\Ahmed Elhagrasi\Desktop\DotNet_app\published_app\WebApplication1.deps.json
+C:\Users\Ahmed Elhagrasi\Desktop\DotNet_app\published_app\WebApplication1.runtimeconfig.json
+C:\Users\Ahmed Elhagrasi\Desktop\DotNet_app\published_app\WebApplication1.pdb
