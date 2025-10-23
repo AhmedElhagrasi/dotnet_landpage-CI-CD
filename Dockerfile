@@ -12,5 +12,3 @@ COPY --from=build /app/out .
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "WebApplication1.dll"]
 
-
-//ahmed
