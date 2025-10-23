@@ -50,7 +50,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 echo "Cleaning up containers and images..."
-                sh 'docker rm -f test_app || true'
+                sh 'docker rm -f test_app$BUILD_NUMBER || true'
                 sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
             }
         }
