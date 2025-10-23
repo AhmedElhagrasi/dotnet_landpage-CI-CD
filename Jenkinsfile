@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "ahmedelhagrasi/dotnet-landpage"
+        DOCKER_IMAGE = "ahmedelhagrasi/dotnet_landpage-CI-CD"
         DOCKER_TAG = "latest"
     }
 
@@ -40,8 +40,8 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 echo "Pushing image to Docker Hub..."
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'user', passwordVariable: 'pass')]) {
-                    sh 'echo "$DOCKER_PASS" | sh "docker login -u $USER -p $PASS"
+		withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                    sh 'echo "$DOCKER_PASS" | sh "docker login -u $user -p $pass"
                     sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 }
             }
