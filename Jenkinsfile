@@ -1,4 +1,4 @@
-//ahmed
+
 pipeline {
     agent any
 
@@ -19,7 +19,7 @@ pipeline {
 	stage('Cleanup') {
             steps {
                 echo "Cleaning up containers and images..."
-		  
+		  //ahmed
                 sh 'docker rm -f dotnet_landpage || true'
                 sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
             }
