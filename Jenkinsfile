@@ -30,7 +30,17 @@ pipeline {
 
        
 
-        stage('Push to Docker Hub') {
+       
+
+        stage('Cleanup') {
+            steps {
+                echo "Cleaning up containers and images..."
+                sh 'docker rm -f dotnet_landpage || true'
+                sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
+            }
+        }
+
+ 	stage('Push to Docker Hub') {
             steps {
                 echo "Pushing image to Docker Hub..."
 		withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
@@ -39,14 +49,6 @@ pipeline {
                 sh "docker push ahmedelhagrasi/dotnet_landpage-ci-cd:$BUILD_NUMBER"
 		}
 		 
-            }
-        }
-
-        stage('Cleanup') {
-            steps {
-                echo "Cleaning up containers and images..."
-                sh 'docker rm -f dotnet_landpage || true'
-                sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
             }
         }
 
