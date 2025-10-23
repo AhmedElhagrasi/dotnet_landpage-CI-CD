@@ -46,7 +46,7 @@ pipeline {
 		withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     
                 sh "docker login -u $USER -p $PASS"
-                sh "docker push ahmedelhagrasi/dotnet_landpage-ci-cd:$BUILD_NUMBER"
+                sh " docker push ${DOCKER_IMAGE}:${DOCKER_TAG} "
 		}
 		 
             }
