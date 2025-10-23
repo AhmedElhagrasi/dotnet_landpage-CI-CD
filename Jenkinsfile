@@ -31,7 +31,7 @@ pipeline {
         stage('Run Container Test') {
             steps {
                 echo "Testing Docker container..."
-                sh "docker run -d -p 5000:80 --name "test_app$BUILD_NUMBER" ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                sh "docker run -d -p 5000:80 --name test_app$BUILD_NUMBER ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 sh "sleep 5"
                 sh "docker ps"
             }
