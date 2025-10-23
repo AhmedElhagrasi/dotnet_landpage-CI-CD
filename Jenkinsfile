@@ -28,14 +28,7 @@ pipeline {
             }
         }
 
-        stage('Run Container Test') {
-            steps {
-                echo "Testing Docker container..."
-                sh "docker run -d -p 6000:5000 --name test_app ${DOCKER_IMAGE}:${DOCKER_TAG}"
-                sh "sleep 5"
-                sh "docker ps"
-            }
-        }
+       
 
         stage('Push to Docker Hub') {
             steps {
@@ -54,5 +47,16 @@ pipeline {
                 sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
             }
         }
+
+	 stage('Run Container Test') {
+            steps {
+                echo "Testing Docker container..."
+                sh "docker run -d -p 6000:5000 --name test_app ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                sh "sleep 5"
+                sh "docker ps"
+            }
+        }
+
+
     }
 }
