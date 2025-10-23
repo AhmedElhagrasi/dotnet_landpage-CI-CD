@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "ahmedelhagrasi/dotnet_landpage-CI-CD"
+        DOCKER_IMAGE = "ahmedelhagrasi/dotnet_landpage"
         DOCKER_TAG = "latest"
     }
 
