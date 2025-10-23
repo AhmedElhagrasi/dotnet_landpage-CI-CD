@@ -34,11 +34,11 @@ pipeline {
             steps {
                 echo "Pushing image to Docker Hub..."
 		withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    sh '''
-                echo "$PASS" | docker login -u "$USER" --password-stdin
-                docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
-            '''
-                }
+                    
+                sh "docker login -u $USER -p $PASS"
+                sh "docker push ahmedelhagrasi/flask_app:$BUILD_NUMBER"
+		}
+		 
             }
         }
 
