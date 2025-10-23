@@ -54,7 +54,7 @@ pipeline {
 	 stage('Run Container Test') {
             steps {
                 echo "Testing Docker container..."
-                sh "docker run -d -p 6000:8080 --name dotnet_landpage ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                sh "docker run -d -p 5050:8080 --name dotnet_landpage ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 sh "sleep 5"
                 sh "docker ps"
             }
