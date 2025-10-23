@@ -36,7 +36,7 @@ pipeline {
 		withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     
                 sh "docker login -u $USER -p $PASS"
-                sh "docker push ahmedelhagrasi/flask_app:$BUILD_NUMBER"
+                sh "docker push ahmedelhagrasi/dotnet_landpage-ci-cd:$BUILD_NUMBER"
 		}
 		 
             }
@@ -45,7 +45,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 echo "Cleaning up containers and images..."
-                sh 'docker rm -f test_app || true'
+                sh 'docker rm -f dotnet_landpage || true'
                 sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
             }
         }
@@ -53,7 +53,7 @@ pipeline {
 	 stage('Run Container Test') {
             steps {
                 echo "Testing Docker container..."
-                sh "docker run -d -p 6000:5000 --name test_app ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                sh "docker run -d -p 6000:5000 --name dotnet_landpage ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 sh "sleep 5"
                 sh "docker ps"
             }
