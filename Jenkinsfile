@@ -1,11 +1,23 @@
 pipeline {
-    agent {        label 'master_node'    }
+    agent any
+ {        label 'master_node'    }
     
-    environment {
-        greating = "hello form jenkins s 🥰  "
-    }
+//    environment {
+ //       greating = "hello form jenkins s 🥰  "
+  //  }
     
     stages {
+
+
+
+ 	stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        }
         stage('build') {
             steps {
                 git branch: 'main', credentialsId: 'e24508c4-03d7-4db0-ad4b-8f62e84c97e5', url: 'https://github.com/AhmedElhagrasi/dotnet_landpage-CI-CD.git'
