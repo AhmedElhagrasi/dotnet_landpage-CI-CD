@@ -26,7 +26,7 @@ pipeline {
         
         stage('deploy'){
             steps{
-                sh "docker run -d -p 500$BUILD_NUMBER:8080 ahmedelhagrasi/dotnet_landpage-CI-CD:$BUILD_NUMBER"
+                sh "docker run -d -p 500$BUILD_NUMBER:5000 ahmedelhagrasi/dotnet_landpage-CI-CD:$BUILD_NUMBER"
             }
         }
     }
