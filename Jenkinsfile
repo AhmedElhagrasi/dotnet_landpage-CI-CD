@@ -31,7 +31,7 @@ pipeline {
         stage('Run Container Test') {
             steps {
                 echo "Testing Docker container..."
-                sh "docker run -d -p 6000:80 --name test_app$BUILD_NUMBER ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                sh "docker run -d -p 6000:5000 --name test_app ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 sh "sleep 5"
                 sh "docker ps"
             }
@@ -50,7 +50,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 echo "Cleaning up containers and images..."
-                sh 'docker rm -f test_app$BUILD_NUMBER || true'
+                sh 'docker rm -f test_app || true'
                 sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
             }
         }
