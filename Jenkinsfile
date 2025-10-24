@@ -23,13 +23,13 @@ pipeline {
             }
         }
 
-        stage('Build .NET app') {
-            steps {
-                echo "Restoring and building .NET app..."
-                sh 'dotnet restore'
-                sh 'dotnet publish -c Release -o out'
-            }
-        }
+        // stage('Build .NET app') {
+        //     steps {
+        //         echo "Restoring and building .NET app..."
+        //         sh 'dotnet restore'
+        //         sh 'dotnet publish -c Release -o out'
+        //     }
+        // }
 
         stage('Build Docker image') {
             steps {
