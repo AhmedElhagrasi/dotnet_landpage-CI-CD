@@ -23,12 +23,12 @@ pipeline {
             }
         }
 
-        stage('Build .NET app') {
-            steps {
-                echo "Restoring and building : ahmed build on jenkins"
-                sh 'dotnet restore'
-                sh 'dotnet publish -c Release -o out'
-            }
+        // stage('Build .NET app') {
+        //     steps {
+        //         echo "Restoring and building : ahmed build on jenkins"
+        //         sh 'dotnet restore'
+        //         sh 'dotnet publish -c Release -o out'
+        //     }
         }
 
         stage('Build Docker image') {
