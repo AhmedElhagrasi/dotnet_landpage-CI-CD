@@ -1,0 +1,7 @@
+D:\@hmed\Projects\DotNet_app\WebApplication1\newPub\WebApplication1.exe
+D:\@hmed\Projects\DotNet_app\WebApplication1\newPub\appsettings.Development.json
+D:\@hmed\Projects\DotNet_app\WebApplication1\newPub\appsettings.json
+D:\@hmed\Projects\DotNet_app\WebApplication1\newPub\WebApplication1.dll
+D:\@hmed\Projects\DotNet_app\WebApplication1\newPub\WebApplication1.deps.json
+D:\@hmed\Projects\DotNet_app\WebApplication1\newPub\WebApplication1.runtimeconfig.json
+D:\@hmed\Projects\DotNet_app\WebApplication1\newPub\WebApplication1.pdb
