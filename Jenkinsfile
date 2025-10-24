@@ -56,6 +56,7 @@ pipeline {
                 sh "docker run -d -p 5050:8080 --name dotnet_landpage ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 sh "sleep 5"
                 sh "docker ps"
+                // sh "docker ps"
             }
         }
 
