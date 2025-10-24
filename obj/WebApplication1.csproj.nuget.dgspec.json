@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmed Elhagrasi\\Desktop\\DotNet_app\\WebApplication1\\WebApplication1.csproj": {}
+    "D:\\@hmed\\Projects\\DotNet_app\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmed Elhagrasi\\Desktop\\DotNet_app\\WebApplication1\\WebApplication1.csproj": {
+    "D:\\@hmed\\Projects\\DotNet_app\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmed Elhagrasi\\Desktop\\DotNet_app\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "D:\\@hmed\\Projects\\DotNet_app\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\Ahmed Elhagrasi\\Desktop\\DotNet_app\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "D:\\@hmed\\Projects\\DotNet_app\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\Ahmed Elhagrasi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmed Elhagrasi\\Desktop\\DotNet_app\\WebApplication1\\obj\\",
+        "outputPath": "D:\\@hmed\\Projects\\DotNet_app\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ahmed Elhagrasi\\AppData\\Roaming\\NuGet\\NuGet.Config"
