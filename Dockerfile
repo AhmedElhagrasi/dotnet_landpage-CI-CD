@@ -4,8 +4,8 @@ WORKDIR /app
 COPY . .
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
-CMD [ echo,"finished publish >>> ahmed'" ]
-#ahmed
+RUN echo "Building app , ahmed "
+
 # Stage 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
