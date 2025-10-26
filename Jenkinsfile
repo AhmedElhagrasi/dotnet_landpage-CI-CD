@@ -23,12 +23,7 @@ pipeline {
             }
         }
 
-        // stage('Build .NET app') {
-        //     steps {
-        //         echo "Restoring and building : ahmed build on jenkins"
-        //         sh 'dotnet restore'
-        //         sh 'dotnet publish -c Release -o out'
-        //     }
+      
         }
 
         stage('Build Docker image') {
@@ -56,7 +51,7 @@ pipeline {
                 sh "docker run -d -p 5050:8080 --name dotnet_landpage ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 sh "sleep 5"
                 sh "docker ps"
-                // sh "docker ps"
+                
             }
         }
 
