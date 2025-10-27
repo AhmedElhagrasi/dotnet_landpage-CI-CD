@@ -29,6 +29,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 echo "Building Docker image..."
+                  git branch: 'main', credentialsId: 'git', url: 'https://github.com/AhmedElhagrasi/dotnet_landpage-CI-CD.git'
                 sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
             }
         }
