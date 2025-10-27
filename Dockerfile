@@ -4,15 +4,11 @@ WORKDIR /app
 COPY . .
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
-<<<<<<< HEAD
+ 
 RUN echo "Building app form Dockerfile "
-
-=======
+ 
 CMD [ "pwd","echo 'finished publish >>> ahmed'" ]
-<<<<<<< HEAD
->>>>>>> parent of ebf1563 (done)
-=======
->>>>>>> parent of ebf1563 (done)
+ 
 # Stage 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
