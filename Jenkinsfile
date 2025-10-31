@@ -1,5 +1,5 @@
 pipeline {
-    agent {"master_node"}
+    agent { label "master_node"}
 
     environment {
         DOCKER_IMAGE = "ahmedelhagrasi/dotnet_landpage"
