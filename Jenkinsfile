@@ -29,18 +29,18 @@ pipeline {
           stage('Build Docker image') {
             steps {
                 echo "Building Docker image..."
-                sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
-            }
-        }
+                git branch: 'main' , credentialsId: 'git' , url: "https://github.com/AhmedElhagrasi/dotnet_landpage-CI-CD.git"
+                    withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                    sh "docker login -u $USER -p $PASS"
+                    sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                    sh " docker push ahmedelhagrasi/${DOCKER_IMAGE}:${DOCKER_TAG} "
+           
+                 }
 
       	stage('Push to Docker Hub') {
             steps {
                 echo "Pushing image to Docker Hub..."
-		withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    
-                sh "docker login -u $USER -p $PASS"
-                sh " docker push ${DOCKER_IMAGE}:${DOCKER_TAG} "
-		}
+		
 		 
             }
         }
