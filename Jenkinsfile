@@ -26,7 +26,7 @@ pipeline {
       
         
 
-            stage('Build Docker image') {
+            stage('Build & Push Docker image') {
                 steps {
                     echo "Building Docker image..."
                     git branch: 'main' , credentialsId: 'git' , url: "https://github.com/AhmedElhagrasi/dotnet_landpage-CI-CD.git"
@@ -37,13 +37,7 @@ pipeline {
             
                      } } }
 
-            stage('Push to Docker Hub') {
-                steps {
-                    echo "Pushing image to Docker Hub..."
-            
-            
-                }
-            }
+           
 
             stage('Run Container Test') {
                     steps {
