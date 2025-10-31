@@ -9,52 +9,55 @@ pipeline {
     	
 	
         stages {
-            stage('Checkout') {
-                steps {
-                    checkout scm
-                 }
-            }
+                stage('Checkout') {
+                 steps {
+                     checkout scm
+                   }
+                }
 
-        stage('Cleanup') {
-                steps {
-                echo "Cleaning up containers and images..."
-                sh 'docker rm -f dotnet_landpage || true'
-                sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
-            }
-        }
+                stage('Cleanup') {
+                    steps {
+                    echo "Cleaning up containers and images..."
+                    sh 'docker rm -f dotnet_landpage || true'
+                    sh 'docker rmi ${DOCKER_IMAGE}:${DOCKER_TAG} || true'
+                }
+             }
 
       
-        }
+        
 
-          stage('Build Docker image') {
-            steps {
-                echo "Building Docker image..."
-                git branch: 'main' , credentialsId: 'git' , url: "https://github.com/AhmedElhagrasi/dotnet_landpage-CI-CD.git"
-                    withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    sh "docker login -u $USER -p $PASS"
-                    sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
-                    sh " docker push ahmedelhagrasi/${DOCKER_IMAGE}:${DOCKER_TAG} "
-           
-                 }
+            stage('Build Docker image') {
+                steps {
+                    echo "Building Docker image..."
+                    git branch: 'main' , credentialsId: 'git' , url: "https://github.com/AhmedElhagrasi/dotnet_landpage-CI-CD.git"
+                        withCredentials([usernamePassword(credentialsId: '42601bb2-e45d-4ce2-91ef-18e26215ffd6', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                        sh "docker login -u $USER -p $PASS"
+                        sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                        sh " docker push ahmedelhagrasi/${DOCKER_IMAGE}:${DOCKER_TAG} "
+            
+                     } } }
 
-      	stage('Push to Docker Hub') {
-            steps {
-                echo "Pushing image to Docker Hub..."
-		
-		 
+            stage('Push to Docker Hub') {
+                steps {
+                    echo "Pushing image to Docker Hub..."
+            
+            
+                }
             }
-        }
 
-	 stage('Run Container Test') {
-            steps {
-                echo "Testing Docker container..."
-                sh "docker run -d -p 5050:8080 --name dotnet_landpage ${DOCKER_IMAGE}:${DOCKER_TAG}"
-                sh "sleep 5"
-                sh "docker ps"
-                
+            stage('Run Container Test') {
+                    steps {
+                        echo "Testing Docker container..."
+                        sh "docker run -d -p 5050:8080 --name dotnet_landpage ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                        sh "sleep 5"
+                        sh "docker ps"
+                        
+                    }
+                }
             }
-        }
+            }
+
+    
 
 
-    }
 
